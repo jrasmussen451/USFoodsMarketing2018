@@ -1,0 +1,138 @@
+<header class="mainHeader">
+    <div class="col-xs-12 col-lg-8 col-lg-offset-2 top-header">
+        <div class="col-xs-12 col-sm-4">
+            <a href="catalog" ng-show="user.Company.LogoUrl">
+                <img ng-src="{{user.Company.LogoUrl}}" />
+            </a>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <ul class="utility-navigation" ng-class="{'active': true}">
+                <li class="visible-xs">
+                    <div class="minicart" ng-show="(cartCount && cartCount > 0) && user.CurrentOrderID">
+                        <span ng-bind="cartCount" ng-show="(cartCount && cartCount > 0) && user.CurrentOrderID" class="badge btn-warning"></span>
+                        <a href="cart"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </li>
+                <li class="hidden-xs">
+                    <minicart></minicart>
+                </li>
+                <!--in case they want the search below the header
+                <li>
+                    <a ng-click="showSearch = !showSearch">
+                        <span><i class="fa fa-search"></i></span>
+                    </a>
+                </li>-->
+                <li>
+                    <productsearchinputnav></productsearchinputnav>
+                </li>
+                <li ng-class="{'active': isActive(['admin', 'addresses', 'address', 'messages', 'message', 'favoriteorders'])}">
+                    <a id="451qa_acct_link2" class="dropdown-toggle topContainer-usermenu-username" data-toggle="dropdown">
+                        <span class="">{{user.FirstName}} {{user.LastName}}</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li id="451qa_user_link" ng-show="user.Permissions.contains('ViewSelfAdmin')" class="admin">
+                            <a href="admin">
+                                {{'User Information' | r | xlat}}
+                            </a>
+                        </li>
+                        <li id="451qa_addy_link" ng-show="user.Type == 'Customer' && (user.Permissions.contains('CreateShipToAddress') || user.Permissions.contains('CreateBillToAddress'))" class="addresses">
+                            <a href="addresses">
+                                {{'Addresses' | r | xlat}}
+                            </a>
+                        </li>
+                        <li id="451qa_mesg_link" ng-show="user.Type == 'Customer' && user.Permissions.contains('ViewMessaging')" class="messages">
+                            <a href="message">
+                                {{'Messages' | r | xlat}}
+                            </a>
+                        </li>
+                        <li class="favorites" ng-show="user.Type == 'Customer'">
+                            <a id="451qa_fave_link" href="favoriteorders">
+                                {{'Favorites' | r | xlat}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" neworder ng-if="user.Permissions.contains('MultipleShoppingCart') && currentOrder" class="neworder" ng-click="newOrderLoadingIndicator = true;startNewOrder()">
+                                {{"Start" | r | xlat}} {{"New" | r | xlat}} {{"Order" | r | xlat}}
+                            </a>
+                        </li>
+                        <li class="divider" ng-show="user.Type!='TempCustomer' || AppConst.debug"></li>
+                        <li ng-show="user.Type!='TempCustomer'" class="logout">
+                            <a href="#"  class="451_btn_logout" ng-click="Logout()">
+                                <!--<i class="fa fa-power-off text-danger"></i>-->
+                                <span>{{'Log Out' | r | xlat}}</span>
+                            </a>
+                        </li>
+                        <li ng-if="AppConst.debug">
+                            <a href="#" ng-click="Clear()">
+                                <i class="fa fa-archive"></i>
+                                <span class="text-nav">Clear Cache</span>
+                            </a>
+                        </li>
+                        <li class="divider" ng-show="$parent.SpendingAccounts"></li>
+                        <li ng-show="$parent.SpendingAccounts" class="spendingacctonmenu">
+                            {{'Spending Accounts' | r | xlat}}
+                            <ul>
+                                <li ng-repeat="saccount in $parent.SpendingAccounts" style="padding: 5px;">
+                                    {{saccount.Label}} {{saccount.Balance|culturecurrency}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li id="anonlogin" ng-show="user.Type == 'TempCustomer'">
+                    <a href="admin">
+                        {{'Login' | r | xlat}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--in case they want the search below the header
+    <div class="col-xs-12 search-body" ng-show="showSearch">
+        <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+            <form role="search" class="search-form">
+                <div class="input-group">
+                    <input type="text" ng-model="searchTerm"  class="form-control" placeholder="Search..." autocomplete="off" />
+                    <div class="input-group-btn">
+                        <button type="submit" ng-click="executeSearch(searchTerm)" class="btn btn-search">{{'Search' | r | xlat}}</button>
+                    </div>
+                    <span class="close" ng-click="showSearch = !showSearch"><i class="fa fa-times"></i></span>
+                </div>
+            </form>
+        </div>
+    </div>-->
+
+    <nav tolerance='20' offset='200' class="navbar navbar-default mainNavigation" role="navigation" headroom>
+        <section class="col-xs-10 col-lg-8 col-lg-offset-2">
+            <div class="container mainNavigation-container">
+                <ul class="nav navbar-nav mainNavigation-navbar pull-left">
+                    <li class="mainNavigation-navbar-browseCatalogs browsecatalogs" >
+                        <a id="451qa_browsecatalog_link" ng-show="Four51User.isAuthenticated()" ng-click="showSlideOutNav = !showSlideOutNav" class="mainNavigation-navbar-linkItem">
+                            <span class="">{{'Browse Catalogs' | r | xlat}}</span>
+                            <i class="icon icon-arrow-right mainNavigation-browseCatalogs-chevron"></i>
+                        </a>
+                    </li>
+                    <li class="order hidden-xs mainNavigation-navbar-linkItem" ng-if="user.Type == 'Customer'" ng-class="{'active': isActive('order'), 'active-xs': isActive('favoriteorders')}">
+                        <a id="451qa_order_link" href="order">
+                            <!--<i class="fa fa-clipboard"></i>-->
+                            <span class="">{{'My Orders' | r | xlat}}</span>
+                        </a>
+                    </li>
+                    <li class="report hidden-xs mainNavigation-navbar-linkItem" ng-if="user.Type == 'Customer' && user.Permissions.contains('AdvancedReporting')" ng-class="{'active': isActive('reports')}">
+                        <a id="451qa_report_link" href="reports">
+                            <!--<i class="fa fa-bar-chart-o"></i>-->
+                            <span class="">{{'Reports' | r | xlat}}</span>
+                        </a>
+                    </li>
+                    <li id="451qa_mesg_link" class="mainNavigation-navbar-linkItem" ng-show="user.Permissions.contains('ViewContactUs')" class="contactus">
+                        <a href="contactus">
+                            {{'Contact Us' | r | xlat}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </nav>
+    <slidenavigation></slidenavigation>
+</header>

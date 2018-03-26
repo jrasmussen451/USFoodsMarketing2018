@@ -1,0 +1,35 @@
+<div class="footer-cart">
+    <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+        <div class="col-xs-12 col-sm-2 order-total">
+            <h4>{{'Order Total' | r | xlat}}</h4>
+            <h3>{{currentOrder.Subtotal | culturecurrency}}</h3>
+        </div>
+        <div class="col-xs-12 col-sm-2 order-subtotal">
+            <p ng-if="!(user.Permissions.contains('HidePricing'))">
+                <span>{{'Subtotal' | r | xlat}}</span>
+                <span class="pull-right">{{currentOrder.Subtotal | culturecurrency}}</span>
+            </p>
+            <p ng-if="!(user.Permissions.contains('HidePricing'))">
+                <span>{{('Shipping' | r) + ' ' + ('Costs' | r) | xlat}}</span>
+                <span class="pull-right">{{currentOrder.ShippingCost | culturecurrency}}</span>
+            </p>
+            <p ng-if="!(user.Permissions.contains('HidePricing'))">
+                <span>{{'Tax' | r | xlat}}</span>
+                <span class="pull-right">{{currentOrder.TaxCost || 0 | culturecurrency}}</span>
+            </p>
+        </div>
+
+        <div class="col-xs-12 col-sm-8 text-right">
+            <button type="button" class="btn btn-info btn-lg" redirect="catalog">
+                <span class="hidden-xs">{{'Continue Shopping' | r | xlat}}</span>
+                <span class="visible-xs">{{'Shop' | r | xlat}}</span>
+            </button>
+            <button class="btn btn-lg"
+                    ng-class="{'btn-warning': cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked, 'btn-success': !cart_shipping.$invalid && !cart_order.$invalid && !cart_billing.$invalid || !submitClicked }"
+                    ng-click="submitOrder()" ng-disabled="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked">
+                <i ng-show="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked" class="fa fa-warning"></i>
+                <span>{{('Submit' | r) + ' ' + ('Order' | r) | xlat}}</span>
+            </button>
+        </div>
+    </div>
+</div>
