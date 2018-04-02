@@ -1,8 +1,9 @@
-four51.app.directive('ordershipping', ['Order', 'Shipper', 'Address', 'AddressList', function(Order, Shipper, Address, AddressList) {
+four51.app.directive('ordershipping', ['Order', 'Shipper', 'Address', 'AddressList', 'Resources', function(Order, Shipper, Address, AddressList, Resources) {
 	var obj = {
 		restrict: 'AE',
 		templateUrl: 'partials/controls/orderShipping.html',
 		controller: ['$scope', function($scope) {
+			var CCIDFedEx = Resources.CCIDFedEx;
 			AddressList.clear();
 			AddressList.shipping(function(list) {
 				$scope.shipaddresses = list;
@@ -194,6 +195,22 @@ four51.app.directive('ordershipping', ['Order', 'Shipper', 'Address', 'AddressLi
 					}
 				);
 			};
+
+			var updateShipAccnt = function(){
+				var shipperName = $scope.currentOrder.LineItems[0].ShipperName;
+				if(shipperName.indexOf('FedEx') != -1){
+					$scope.shipAccountNumbers = CCIDFedEx[$scope.currentOrder.CostCenter];
+					if($scope.shipAccountNumbers.length == 1){
+						$scope.currentOrder.LineItems[0].ShipAccount = $scope.shipAccountNumbers[0];
+					}
+					$scope.showShipAccountNumber = true;
+				}
+				else{
+					$scope.currentOrder.LineItems[0].ShipAccount = "";
+					$scope.showShipAccountNumber = false;
+				}
+			};
+
 			$scope.updateShipper = function(li) {
 				$scope.shippingUpdatingIndicator = true;
 				$scope.shippingFetchIndicator = true;
@@ -209,6 +226,7 @@ four51.app.directive('ordershipping', ['Order', 'Shipper', 'Address', 'AddressLi
 					});
 
 					saveChanges(function() {
+						updateShipAccnt();
 						$scope.shippingUpdatingIndicator = false;
 						$scope.shippingFetchIndicator = false;
 					});
@@ -221,6 +239,7 @@ four51.app.directive('ordershipping', ['Order', 'Shipper', 'Address', 'AddressLi
 					if (li.Shipper.Name) li.ShipperName = li.Shipper.Name;
 					if (li.Shipper.ID) li.ShipperID = li.Shipper.ID;
 					saveChanges(function() {
+						updateShipAccnt();
 						$scope.shippingUpdatingIndicator = false;
 						$scope.shippingFetchIndicator = false;
 					});

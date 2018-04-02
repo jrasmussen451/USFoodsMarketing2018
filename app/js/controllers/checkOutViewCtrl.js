@@ -43,6 +43,12 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, User, Orde
         );
     };
 
+	angular.forEach($scope.user.CustomFields, function(field){
+		if(field.Name == "DefaultCostCenter"){
+			$scope.currentOrder.CostCenter = field.Value;
+		}
+	});
+
 	$scope.$watch('currentOrder.CostCenter', function() {
 		OrderConfig.address($scope.currentOrder, $scope.user);
 	});

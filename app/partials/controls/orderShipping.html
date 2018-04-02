@@ -143,11 +143,22 @@
                                         <i class="fa fa-truck"></i>
                                     </div>
                                 </div>
-                                <div class="view-form-icon" ng-show="user.ShipMethod.AskForAccountNumber && currentOrder.IsMultipleShip()">
+                                <div class="view-form-icon" ng-show="user.ShipMethod.AskForAccountNumber && currentOrder.IsMultipleShip() && showShipAccountNumber">
                                     <div>
                                         <label ng-show="item.ShipAccount">{{('Shipping' | r) + ' ' + ('Account' | r) | xlat}}: </label>
-                                        <input class="form-control" ng-if="user.ShipMethod.AskForAccountNumber" placeholder="{{('Shipping' | r) + ' ' + ('Account' | r) + ' ' + ('Number' | r) | xlat}}" type="text" ng-model="item.ShipAccount" autocomplete="off" />
+                                        <input class="form-control" ng-if="user.ShipMethod.AskForAccountNumber"
+                                               placeholder="{{('Shipping' | r) + ' ' + ('Account' | r) + ' ' + ('Number' | r) | xlat}}" type="text" ng-model="item.ShipAccount" autocomplete="off"
+                                               ng-required="showShipAccountNumber" />
                                         <i class="fa fa-book"></i>
+                                    </div>
+                                    <div ng-show="shipAccountNumbers.length > 1">
+                                        <label class="required">{{('Shipping' | r) + ' ' + ('Account' | r) + ' ' + ('Number' | r) | xlat}}</label>
+                                        <div>
+                                            <select class="form-control" ng-model="item.ShipAccount" ng-options="account for account in shipAccountNumbers" ng-required="showShipAccountNumber">
+                                                <option value="" class=""></option>
+                                            </select>
+                                        </div>
+                                        <i class="fa fa-edit"></i>
                                     </div>
                                 </div>
                             </div>
