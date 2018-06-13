@@ -4,7 +4,7 @@ four51.app.directive('categorytree', function() {
 		replace: true,
 		scope: {
 			tree: '=',
-            current: '='
+			current: '='
 		},
 		templateUrl: 'partials/categoryTree.html'
 	};
@@ -17,7 +17,7 @@ four51.app.directive('node', ['$compile', function($compile) {
 		replace: true,
 		scope: {
 			node: '=',
-            current: '='
+			current: '='
 		},
 		template: '<li class="451_cat_item" ng-class="{\'active\':  current.InteropID == node.InteropID}"><a ng-href="catalog/{{node.InteropID}}" ng-bind-html="node.Name"></a></li>',
 		link: function(scope, element) {

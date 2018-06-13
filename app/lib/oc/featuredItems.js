@@ -16,8 +16,10 @@ function featureditems() {
 
     function template() {
         return [
+            '<h2 class="text-center">Featured Items</h2>',
             '<ul class="featured-items text-center" ng-class="{\'active\': isActive(\'catalog\')}">',
-            '<li ng-class="col-xs-12 col-sm-6 col-md-3" ng-repeat="featureditem in featureditems">',
+            //'<li class="col-xs-12 col-sm-4" ng-repeat="featureditem in featureditems">', //feature 3 items
+            '<li class="col-xs-12 col-sm-3" ng-repeat="featureditem in featureditems">', //feature 4 items
             '<div class="caption">',
             '<h3>{{featureditem.text}}</h3>',
             '</div>',

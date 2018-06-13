@@ -1,11 +1,11 @@
-.container .navbar-nav li.active a:hover  {background-color: #487313;}
-.container .navbar-nav li.active a:focus  {background-color: #487313;}
-.navbar-default .navbar-nav .open > a  {background-color: #487313;}
-.navbar-default .navbar-nav .open > a:hover  {background-color: #487313;}
-.navbar-default .navbar-nav .open > a:focus  {background-color: #487313;}
-.navbar-nav li.dropdown li > a:hover  {background-color: #487313;}
-.navbar-nav li.dropdown li > a:focus  {background-color: #487313;}
-.navbar .container .navbar-nav li.active .fa-caret-down  {color: #487313;}
+.container .navbar-nav li.active a:hover  {background-color: #c08b0b;}
+.container .navbar-nav li.active a:focus  {background-color: #c08b0b;}
+.navbar-default .navbar-nav .open > a  {background-color: #c08b0b;}
+.navbar-default .navbar-nav .open > a:hover  {background-color: #c08b0b;}
+.navbar-default .navbar-nav .open > a:focus  {background-color: #c08b0b;}
+.navbar-nav li.dropdown li > a:hover  {background-color: #c08b0b;}
+.navbar-nav li.dropdown li > a:focus  {background-color: #c08b0b;}
+.navbar .container .navbar-nav li.active .fa-caret-down  {color: #c08b0b;}
 .navbar-nav li.dropdown li > a  {color: #333333;}
 .navbar-nav li.dropdown li > a:hover  {color: #FFFFFF;}
 .navbar .container .navbar-nav.pull-right li a i:first-of-type  {border-color: #FFFFFF;}
@@ -13,7 +13,7 @@
 .badge  {color: #000000;}
 .navbar-default  {background-color: #5C8727;}
 /*.container .navbar-nav li a  {color: #FFFFFF;}*/
-.container .navbar-nav li.active > a  {background-color: #487313;}
+.container .navbar-nav li.active > a  {background-color: #c08b0b;}
 .container .navbar-nav li.active > a  {color: #FFFFFF;}
 .navbar-default, .dropdown-mega  {border-color: transparent;}
 body  {background-color: #FFF;}
@@ -37,10 +37,10 @@ body a  {color: #717073;}
 .btn-success, .btn-success:hover  {color: #FFFFFF;}
 .btn-success  {border-color: #4d7818;}
 .btn-success:hover  {background-color: #487313;}
-.btn-warning  {background-color: #f0ad4e;}
+.btn-warning  {background-color: #c08b0b;}
 .btn-warning, .btn-warning:hover  {color: #000000;}
 .btn-warning  {border-color: #e19e3f;}
-.btn-warning:hover  {background-color: #dc993a;}
+.btn-warning:hover  {background-color: #996d05;}
 .btn-danger  {background-color: #8c1c13;}
 .btn-danger, .btn-danger:hover  {color: #FFFFFF;}
 .btn-danger  {border-color: #7d0d04;}

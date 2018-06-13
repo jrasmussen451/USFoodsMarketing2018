@@ -1,11 +1,11 @@
 <section>
     <div ng-show="currentOrder" class="hidden-print">
-        <!--<nav class="nav">
+        <nav class="nav">
             <ul>
                 <li><span class="text-primary">{{'Cart' | r | xlat}}</span></li>
                 <li class="pull-right" ng-click="onPrint()"><span><i class="fa fa-print text-primary" rel="tooltip" title="{{'Print' | r | xlat}}" ></i></span></li>
             </ul>
-        </nav>-->
+        </nav>
         <form ng-submit="saveChanges()" name="cart" novalidate="">
             <loadingindicator  ng-show="displayLoadingIndicator" title="{{'Please wait while we save your order' | r | xlat}}"/>
             <div>
@@ -160,8 +160,8 @@
                             <giftcardredemption ng-if="user.Permissions.contains('ViewPromotions')" />
                         </div>
                         <div class="col-md-3 col-md-offset-5 col-lg-4 text-right" ng-if="!(user.Permissions.contains('HidePricing'))">
-                            <h4>
-                                {{'Subtotal' | r | xlat}} <span>{{currentOrder.Subtotal | culturecurrency}}</span>
+                            <h4 class="text-primary">
+                                <strong>{{'Subtotal' | r | xlat}} <span class="text-success">{{currentOrder.Subtotal | culturecurrency}}</span></strong>
                             </h4>
                             <p ng-show="TaxMethod" ng-if="user.Company.TaxMethod != 'NoTax'">
                                 <span class="text-info">{{'Shipping, handling and tax may be added to this subtotal.' | r | xlat}}</span>
@@ -174,7 +174,7 @@
                     </div>
                 </div>
             </div>
-            <div class="alerts">
+            <div class="navbar-fixed-bottom">
                 <div class="alert-warning text-center" style="padding: 10px;" ng-if="currentOrder.RepeatError">
                     {{'Some items were not added to your repeat order' | r | xlat}}: {{currentOrder.RepeatError}}
                 </div>
@@ -209,9 +209,9 @@
                         </li>
                     </ul>
                 </div>
+                <orderbuttons view="cart" continue="true"></orderbuttons>
             </div>
         </form>
     </div>
     <cartprint class="visible-print" />
 </section>
-<orderbuttons view="cart" continue="true"></orderbuttons>

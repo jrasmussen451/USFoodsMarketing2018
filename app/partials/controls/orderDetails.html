@@ -1,18 +1,19 @@
 <div class="panel panel-default panel-order">
-    <div class="panel-heading">
-        <h3 class="panel-title panel-primary">
+    <div class="panel-heading" ng-class="{'no': cart_order.$invalid, 'yes': !cart_order.$invalid, 'open': checkOutSection == 'order' }">
+        <h3 ng-click="checkOutSection = 'order'" class="panel-title panel-primary">
+            <i class="pull-left" ng-class="{'fa fa-warning': cart_order.$invalid, 'fa fa-check-circle': !cart_order.$invalid }"></i>
             {{'Order' | r | xlat}}
-            <i class="pull-right" ng-class="{'fa fa-warning': cart_order.$invalid, 'fa fa-check-circle': !cart_order.$invalid }"></i>
+            <i class="pull-right" ng-class="{'fa fa-caret-up': checkOutSection == 'order', 'fa fa-caret-down': checkOutSection == 'shipping' || checkOutSection == 'billing' }"></i>
         </h3>
     </div>
-    <div class="panel-body">
+    <div collapse="checkOutSection != 'order'" class="panel-body">
         <form name="cart_order" novalidate="">
             <div class="view-form-icon" ng-if="user.Permissions.contains('EditPOID')" ng-invalid>
                 <div class="col-xs-12 input-group">
                     <label class="required">{{('Order' | r) + ' '  + ('ID' | r) | xlat}}</label>
                     <input class="form-control" name="orderid" ng-disabled='currentOrder.autoID' type='text' ng-model="currentOrder.ExternalID"
                            required ui-mask="{{currentOrder.autoID ? null : user.Company.POIDMask}}"></input>
-                        <span ng-if="user.Permissions.contains('AllowAutoGenPOID')" class="input-group-addon">
+                    <span ng-if="user.Permissions.contains('AllowAutoGenPOID')" class="input-group-addon">
                             <input type='checkbox' ng-click="currentOrder.ExternalID = currentOrder.autoID ? null : 'auto'" ng-model='currentOrder.autoID' />
                         </span>
                     <span class="input-group-addon" ng-show="user.Permissions.contains('AllowAutoGenPOID')">{{('Auto' | r) + ' ' + ('ID' | r) | xlat}}</span>

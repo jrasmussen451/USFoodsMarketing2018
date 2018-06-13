@@ -12,9 +12,10 @@
 	<link rel="stylesheet" href="css/editor.css" data-group="source" />
 	<link rel="stylesheet" href="css/theme.css" data-group="source" />
 	<link rel="stylesheet" href="css/custom.css" data-group="source" />
-    <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' />
-    <link href='//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css' />
+    <!--<link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' />
+    <link href='//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css' />-->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/animate.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,700" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -44,29 +45,41 @@
 
     <section ng-if="Four51User.isAuthenticated()" id="content"  ng-class="{'catalog': isActive('catalog')}">
 
-        <section class="hidden-print hidden-xs container-header">
+        <!--<section class="hidden-print hidden-xs container-header">
             <navigation></navigation>
-        </section>
+        </section>-->
 
-        <section class="hidden-print visible-xs">
+        <!--<section class="hidden-print visible-xs">
             <hamburgernavigationsubcategories></hamburgernavigationsubcategories>
-        </section>
+        </section>-->
 
-        <section class="hidden-print" ng-show="isActive('catalog')">
-            <customcarousel></customcarousel>
-            <featureditems></featureditems>
-        </section>
+        <section class="container-view">
+            <aside class="col-xs-12 col-md-2">
+                <categorycollapse tree='tree' current='currentCategory'></categorycollapse>
+            </aside>
+            <div class="col-xs-12 col-md-10">
+                <section class="hidden-print hidden-xs hidden-sm">
+                    <utilitynavigation></utilitynavigation>
+                </section>
+                <section class="hidden-print" ng-show="isActive('catalog')">
+                    <customcarousel></customcarousel>
+                    <homemessage></homemessage>
+                    <featureditems></featureditems>
+                </section>
 
-        <section class="container-view" ng-class="{'fluid': isActive('catalog')}">
-            <ng-view autoscroll />
+                <div id="content">
+                    <ng-view autoscroll />
+                </div>
+
+                <section class="hidden-print footernavigation" ng-hide="isActive('cart') || isActive('checkout')">
+                    <pagefooter />
+                </section>
+            </div>
+
         </section>
 
         <section class="hidden-print">
             <copyright ng-if="!user.Permissions.contains('UnBrandedSite')" />
-        </section>
-
-        <section class="hidden-print footernavigation" ng-hide="isActive('cart') || isActive('checkout')">
-            <fixedfooter />
         </section>
 
     </section>
@@ -114,6 +127,10 @@
     <script src="lib/oc/securityModal.js" data-group="resources"></script>
     <script src="lib/oc/termsModal.js" data-group="resources"></script>
     <script src="lib/oc/slideNavigation.js" data-group="resources"></script>
+    <script src="lib/oc/categoryCollapse.js" data-group="resources"></script>
+    <script src="lib/oc/categorySidebar.js" data-group="resources"></script>
+    <script src="lib/oc/pageFooter.js" data-group="resources"></script>
+    <script src="lib/oc/utilityNavigation.js" data-group="resources"></script>
 
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCIlcbzwi4Er8psS33a6QmcybuqDtyqjh4&libraries=places"></script>
 

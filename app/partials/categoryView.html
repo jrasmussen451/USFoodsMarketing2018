@@ -1,44 +1,18 @@
-<section ng-if="!isActive('catalog')">
-    <nav id="451qa_nav_hdr" class="nav">
-        <!--<ul>
-            <li class="hidden-sm hidden-xs">
-                <span ng-click="toggleNav()"><i class="fa fa-bars" ng-class="{ 'text-info': navStatus.visible }"></i></span>
-            </li>
-            <li>
-                <span id="451_lbl_curcat" class="text-primary" ng-bind-html="currentCategory.Name || '  {{'Categories' | r | xlat}}'"></span>
-            </li>
-            <li class="pull-right">
-                <a href="search">
-                    <span><i class="fa fa-search text-primary"></i></span>
-                </a>
-            </li>
-        </ul>-->
-        <breadcrumbs></breadcrumbs>
-    </nav>
-    <homemessage />
-    <div class="row">
-        <aside class="col-md-3 visible-md visible-lg" ng-if="navStatus.visible">
-            <div class="panel panel-default panel-nav">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        {{'Category List' | r | xlat}}
-                    </h3>
-                </div>
-                <nav class="nav 451qa_sidenav panel-body">
-                    <ul>
-                        <categorytree tree='tree' current='currentCategory' />
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-        <div ng-class="{ 'col-md-9': navStatus.visible, 'col-md-12': !navStatus.visible }" >
-
-            <categorylistview></categorylistview>
-
-            <loadingindicator ng-show="productLoadingIndicator" title="{{'Please wait while we fetch all products' | r | xlat}}"/>
-
-            <productlistview></productlistview>
-
+<section>
+    <div>
+        <!--<div class="category-header" ng-if="currentCategory.Description">
+            <img src="{{currentCategory.Description}}" />
+            <h1>{{currentCategory.Name}}</h1>
+        </div>-->
+        <div class="category-header" ng-hide="isActive('catalog')">
+            <img src="css/images/USFoods/image.1510461950381.jpg" />
+            <h1>{{currentCategory.Name}}</h1>
         </div>
+
+        <breadcrumbs ng-hide="isActive('catalog')"></breadcrumbs>
+        <categorylistview></categorylistview>
+        <loadingindicator ng-show="productLoadingIndicator" title="{{'Please wait while we fetch all products' | r | xlat}}"/>
+        <productlistview></productlistview>
+
     </div>
 </section>

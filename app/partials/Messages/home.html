@@ -1,5 +1,23 @@
-<!--
-<div class="alert alert-danger">
+<div ng-if="isActive('catalog')" class="alert alert-danger">
     <h4>Holiday Hours</h4>
     <p>US Foods will be closed on December 25, 2017 and January 1, 2018.</p>
+</div>
+
+
+<!--https://getbootstrap.com/docs/3.3/javascript/#alerts
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Warning!</strong> Better check yourself, you're not looking too good.
 </div>-->
+
+<!--https://angular-ui.github.io/bootstrap/#!#alert
+<div ng-controller="AlertDemoCtrl">
+    <script type="text/ng-template" id="alert.html">
+        <div ng-transclude></div>
+    </script>
+
+    <div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+    <div uib-alert template-url="alert.html" style="background-color:#fa39c3;color:white">A happy alert!</div>
+    <button type="button" class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+</div>-->
+

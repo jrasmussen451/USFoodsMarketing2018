@@ -52,7 +52,7 @@ function hamburgernavigationsubcategories() {
             '<span>{{\'Home\' | r | xlat}}</span>',
             '</a>',
             '</li>',
-            /*categories
+            /*categories*/
             '<li id="categories">',
             '<nav class="navbar-default navbar-categories" role="navigation">',
             '<div>',
@@ -79,7 +79,7 @@ function hamburgernavigationsubcategories() {
             '<span>{{\'Cart\' | r | xlat}}</span>',
             '<span ng-bind="cartCount" class="badge"></span>',
             '</a>',
-            '</li>',*/
+            '</li>',
             //account
             '<li id="account">',
             '<nav class="navbar-account" role="navigation" ng-show="user.Type == \'Customer\'">',
