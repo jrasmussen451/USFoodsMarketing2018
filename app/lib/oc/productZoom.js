@@ -23,16 +23,30 @@ function productzoom() {
         link: function($scope) {
             $scope.$watch('lineitem', function(lineitem){
                 if(lineitem.Product) {
-                    var options = {
-                        tintColor: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.tintClr.Value,
-                        tintOpacity: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.tintOpcty.Value,
-                        fadeTime: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.fadeTm.Value,
-                        lensClass: "jetzoom-lens",
-                        lensProportions: "",
-                        lensAutoCircle: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.autoCircle,
-                        innerZoom: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.iZoom
-                    };
+                    var options = {};
                     var jetZoomInstance = new JetZoom($('.jetzoom'), options);
+                    if(lineitem.Product.StaticSpecGroups && lineitem.Product.StaticSpecGroups.ProductZoom){
+                        options = {
+                            tintColor: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.tintClr.Value,
+                            tintOpacity: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.tintOpcty.Value,
+                            fadeTime: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.fadeTm.Value,
+                            lensClass: "jetzoom-lens",
+                            lensProportions: "",
+                            lensAutoCircle: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.autoCircle,
+                            innerZoom: lineitem.Product.StaticSpecGroups.ProductZoom.Specs.iZoom
+                        };
+                    }
+                    else{
+                        options = {
+                            tintColor: "#000000",
+                            tintOpacity: ".025",
+                            fadeTime: "750",
+                            lensClass: "jetzoom-lens",
+                            lensProportions: "",
+                            lensAutoCircle: "",
+                            innerZoom: ""
+                        };
+                    }
                     if(lineitem.Variant){
                         if(lineitem.Specs.Variation){
                             var staticSpec = lineitem.Specs.Variation.Value;
