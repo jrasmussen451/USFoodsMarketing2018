@@ -69,6 +69,12 @@ function utilitynavigation() {
                             '{{\'Favorites\' | r | xlat}}',
                             '</a>',
                             '</li>',
+                            '<li class="report mainNavigation-navbar-linkItem" ng-if="user.Type == \'Customer\' && user.Permissions.contains(\'AdvancedReporting\')" ng-class="{\'active\': isActive(\'reports\')}">',
+                            '<a id="451qa_report_link" href="reports">',
+                            '<i class="fa fa-bar-chart-o"></i>',
+                            '<span class="">{{\'Reports\' | r | xlat}}</span>',
+                            '</a>',
+                            '</li>',
                             /*temp until minicart fixes
                             '<li class="cart" ng-show="user.Type == \'Customer\'">',
                             '<a href="cart">',
