@@ -32,11 +32,42 @@ h2 {
     text-transform:uppercase;
 }
 
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active,
+.open .dropdown-toggle.btn-info {
+    color: #ffffff;
+    background-color: #b6964a;
+    border-color: #996d05;
+}
+
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.btn-group > .btn-group:first-child > .btn:last-child,
+.btn-group > .btn-group:first-child > .dropdown-toggle {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.btn-group > .btn-group:last-child > .btn:first-child {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
 .btn-success .badge {
     color: #5C8727;
 }
 
 .text-info {color:#000}
+.alert {margin-top:10px}
 .alert-info {background-color:#1f1f1f;color:#fff}
 .order-search-view .panel-body,
 .order-search-view .panel-table,
@@ -44,7 +75,7 @@ h2 {
 .address-list-view .panel-table,
 .panel-order .panel-body,
 ordersummary .panel-body {
-    padding:15px 0;margin:15px 0
+    padding:15px;margin:15px 0
 }
 
 .favorite-order-view .panel-body,
@@ -533,18 +564,23 @@ minicart .minicart-detail {
 }
 /**************minicart*****************/
 
+.navbar-fixed-bottom ul li .btn,
+.navbar-fixed-bottom ul li:nth-of-type(1) .btn,
+.navbar-fixed-bottom ul li:nth-of-type(2) .btn {
+    font-size:16px;
+}
 
 .navbar-fixed-bottom ul li:nth-of-type(1) {
     width: 25%;
 }
 .navbar-fixed-bottom ul li:nth-of-type(1) .btn {
-    font-size: 1em;
+    font-size: 1.3em;
 }
 .navbar-fixed-bottom ul li:nth-of-type(2) {
     width: 25%;
 }
 .navbar-fixed-bottom ul li:nth-of-type(2) .btn {
-    font-size: 1em;
+    font-size: 1.3em;
 }
 .navbar-fixed-bottom ul li:last-child {
     width: 50%;
@@ -633,7 +669,7 @@ minicart .minicart-detail {
     float:left;
     border-right:5px solid #fff;
     /*background:rgba(15,15,15,0.8);*/
-    background:#1f1f1f;
+    background:#4f4f4f;
 }
 /*.featured-items li:first-child {border-left:4px solid #fff}*/
 .featured-items li:last-child {border-right:0}
@@ -798,7 +834,7 @@ ordersummary .text-info {color:grey}
     /*max-width: 100%;
     min-height: 185px;*/
     max-height:100%;
-    width:100%;
+    /*width:100%;*/
     height:auto;
 }
 
