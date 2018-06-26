@@ -75,6 +75,12 @@ function utilitynavigation() {
                             '<span class="">{{\'Reports\' | r | xlat}}</span>',
                             '</a>',
                             '</li>',
+                            '<li>',
+                            '<a href="mailto:helpdeskusf@supplylogic.com">',
+                            '<i class="fa fa-envelope-o"></i>',
+                            '<span class="">{{\'Contact Us\' | r | xlat}}</span>',
+                            '</a>',
+                            '</li>',
                             /*temp until minicart fixes
                             '<li class="cart" ng-show="user.Type == \'Customer\'">',
                             '<a href="cart">',
