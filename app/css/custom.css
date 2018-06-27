@@ -843,6 +843,11 @@ ordersummary .text-info {color:grey}
     color:#5C8727;
 }
 
+.panel-product-list .add-to-cart .view-form-icon {
+    height:60px;
+    margin-top:40px;
+}
+
 .product-detail-default.tabbed {
     margin-top:15px;
 }

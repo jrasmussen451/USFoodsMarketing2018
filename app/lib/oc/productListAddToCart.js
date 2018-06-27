@@ -15,7 +15,8 @@ function productlistaddtocart() {
 
     function template() {
         return [
-            '<form name="addToOrderForm"" ng-submit="addToOrder()">',
+            '<form class="add-to-cart" name="addToOrderForm"" ng-submit="addToOrder()">',
+            '<div class="view-form-icon" ng-if="!allowAddToOrderInProductList"></div>',
             '<div class="view-form-icon" ng-show="allowAddToOrderInProductList">',
             '<div class="row" style="padding-bottom: 5px;">',
             '<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">',
