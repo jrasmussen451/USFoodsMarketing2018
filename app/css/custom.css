@@ -670,6 +670,7 @@ minicart .minicart-detail {
     border-right:5px solid #fff;
     /*background:rgba(15,15,15,0.8);*/
     background:#4f4f4f;
+    margin-bottom:20px;
 }
 /*.featured-items li:first-child {border-left:4px solid #fff}*/
 .featured-items li:last-child {border-right:0}
@@ -1135,7 +1136,8 @@ ul.burgers .badge {margin-left:3px;}
 }
 
 .menu-content .parent li {
-     border-left:10px solid #cf4520;
+     /*border-left:10px solid #cf4520;*/
+     border-left:10px solid #56821f;
      background-color:#f2f2f2;
      color:#4f4f4f;
      text-transform:uppercase;
@@ -1148,8 +1150,16 @@ ul.burgers .badge {margin-left:3px;}
     }
 }
 
-/*we need an active here*/
 .menu-content .parent li.active {
+    background-color:#cf4520;
+    border-left:10px solid #cf4520;
+}
+
+.menu-content .parent li.active a {
+    color:#fff;
+}
+
+/*.menu-content .parent li.active {
     background-color:#cf4520;
 }
 
@@ -1171,7 +1181,7 @@ ul.burgers .badge {margin-left:3px;}
 
 .menu-content .parent li:nth-child(3n).active {
     background-color:#c08b0b;
-}
+}*/
 
 .menu-content .parent li a {
     color:#4f4f4f;

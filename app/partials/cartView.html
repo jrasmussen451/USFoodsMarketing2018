@@ -209,9 +209,34 @@
                         </li>
                     </ul>
                 </div>
-                <orderbuttons view="cart" continue="true"></orderbuttons>
+                <orderbuttons ng-if="!PunchoutUser" view="cart" continue="true"></orderbuttons>
+                <ul ng-if="PunchoutUser">
+                    <li>
+                        <button type="button" class="btn btn-danger" ng-click="currentOrder.Status == 'AwaitingApproval' ? cancelEdit() : cancelOrder()">
+                            <small ng-if="currentOrder.Status != 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Order' | r) | xlat}}</small>
+                            <small ng-if="currentOrder.Status == 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Edit' | r) | xlat}}</small>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="submit" class="btn btn-primary" ng-click="saveChanges()">
+                            <loadingindicator  ng-show="displayLoadingIndicator" />
+                            <small>{{('Save' | r) + ' ' + ('Order' | r) | xlat}}</small>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn" ng-class="{'btn-warning': cart.$invalid, 'btn-success': !cart.$invalid }" ng-click="submitPunchoutOrder()" ng-disabled="cart.$invalid">
+                            <i ng-show="cart.$invalid" class="fa fa-warning"></i>
+                            <span>{{'Submit' | r | xlat}} {{window.outerWidth}}</span>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </form>
     </div>
+    <form id="punchoutForm" method="POST" action="{{punchouturl}}">
+        <div ng-repeat="(key, val) in punchoutForm">
+            <input type="hidden" name="{{key}}" value="{{val}}" />
+        </div>
+    </form>
     <cartprint class="visible-print" />
 </section>
