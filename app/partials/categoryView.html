@@ -6,7 +6,7 @@
         </div>-->
         <div class="category-header" ng-hide="isActive('catalog')">
             <img src="css/images/USFoods/image.1510461950381.jpg" />
-            <h1>{{currentCategory.Name}}</h1>
+            <h1 ng-bind-html="currentCategory.Name"></h1>
         </div>
 
         <breadcrumbs ng-hide="isActive('catalog')"></breadcrumbs>

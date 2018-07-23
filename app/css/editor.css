@@ -29,10 +29,11 @@ body a  {color: #717073;}
 .btn-default, .btn-default:hover  {color: #000000;}
 .btn-default  {border-color: #d8d8d8;}
 .btn-default:hover  {background-color: #d3d3d3;}
-.btn-info  {background-color: #2274a5;}
+/*.btn-info  {background-color: #2274a5;}
 .btn-info, .btn-info:hover  {color: #FFFFFF;}
 .btn-info  {border-color: #136596;}
-.btn-info:hover  {background-color: #e6091;}
+.btn-info:hover  {background-color: #e6091;}*/
+
 .btn-success  {background-color: #5C8727;}
 .btn-success, .btn-success:hover  {color: #FFFFFF;}
 .btn-success  {border-color: #4d7818;}

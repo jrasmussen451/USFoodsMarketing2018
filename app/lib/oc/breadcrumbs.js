@@ -19,7 +19,7 @@ function breadcrumbs() {
             '<div class="breadcrumbs">',
             '<ul class="breadcrumb">',
             '<li ng-repeat="crumb in breadcrumbs">',
-            '<a ng-href="{{crumb.link}}">{{crumb.name}}</a>',
+            '<a ng-href="{{crumb.link}}" ng-bind-html="crumb.name"></a>',
             '</li>',
             '</ul>',
             '</div>'

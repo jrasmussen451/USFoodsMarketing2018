@@ -32,14 +32,17 @@ h2 {
     text-transform:uppercase;
 }
 
+.btn-info,
 .btn-info:hover,
 .btn-info:focus,
 .btn-info:active,
 .btn-info.active,
 .open .dropdown-toggle.btn-info {
     color: #ffffff;
-    background-color: #b6964a;
-    border-color: #996d05;
+    /*background-color: #b6964a;
+    border-color: #996d05;*/
+    background-color:#4f4f4f;
+    border-color:#4f4f4f;
 }
 
 .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
@@ -782,6 +785,11 @@ minicart .minicart-detail {
         padding: 5px;
     }
 }
+@media(max-width:767px) {
+    .breadcrumb > li {
+        display: inline-block;
+    }
+}
 
 .breadcrumb a{text-decoration:none; color:#fff;text-transform:uppercase}
 .breadcrumbs li:last-child a{font-weight:700;}
@@ -802,6 +810,10 @@ minicart .minicart-detail {
 }
 
 /*temp overwrite text-info for cart/checkout*/
+.cart-buttons ul li {width:23%;float:left;margin-right:2%;}
+.cart-buttons ul li:last-child {width:25%;margin-right:0;}
+.cart-buttons ul li .btn {width:100%;border-radius:0}
+
 ordersummary .text-info {color:grey}
 
 .panel-order .panel-heading.yes i:first-of-type {
@@ -1191,7 +1203,7 @@ ul.burgers .badge {margin-left:3px;}
 @media(min-width:1199px) {
     .menu-content .parent li a {
         color:#4f4f4f;
-        padding:20px;
+        padding:20px 15px;
     }
 }
 

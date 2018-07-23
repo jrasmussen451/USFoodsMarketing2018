@@ -9,7 +9,8 @@
         <ordershipping />
         <orderbilling ng-show="currentOrder.BillingEnabled" />
         <orderapprovals ng-show="currentOrder.Approvals" />
-        <div class="navbar-fixed-bottom">
+        <!--<div class="navbar-fixed-bottom">-->
+        <div class="cart-buttons">
             <div class="view-response-message alert-success text-center" alert-show="actionMessage">
                 <p ng-bind-html="actionMessage | r | xlat"></p>
             </div>

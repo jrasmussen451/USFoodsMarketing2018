@@ -1,18 +1,4 @@
 <ul>
-    <style ng-if="continue">
-        .navbar-fixed-bottom ul li:nth-of-type(1) {
-            width: 25%;
-        }
-        .navbar-fixed-bottom ul li:nth-of-type(2) {
-            width: 20%;
-        }
-        .navbar-fixed-bottom ul li:nth-of-type(3) {
-            width: 20%;
-        }
-        .navbar-fixed-bottom ul li:last-child {
-            width: 35%;
-        }
-    </style>
     <li ng-if="continue">
         <button type="button" class="btn btn-warning" redirect="catalog">
             <span class="hidden-xs">{{'Continue Shopping' | r | xlat}}</span>

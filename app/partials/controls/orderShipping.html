@@ -84,8 +84,9 @@
                             </div>
                             <div class="view-form-icon" ng-show="!currentOrder.IsMultipleShip() && user.ShipMethod.AskForAccountNumber">
                                 <div>
-                                    <label ng-show="currentOrder.LineItems[0].ShipAccount">{{('Shipping' | r) + ' ' + ('Account' | r) | xlat}}: </label>
-                                    <input class="form-control" placeholder="{{'Shipping' | r | xlat}} Account Number" type="text" ng-model="currentOrder.LineItems[0].ShipAccount" autocomplete="off" />
+                                    <label ng-class="{required: !currentOrder.IsMultipleShip() && user.ShipMethod.AskForAccountNumber}">{{('Shipping' | r) + ' ' + ('Account' | r) | xlat}}: </label>
+                                    <input ng-class="{required: !currentOrder.IsMultipleShip() && user.ShipMethod.AskForAccountNumber}" class="form-control" placeholder="{{'Shipping' | r | xlat}} Account Number" type="text"
+                                           ng-model="currentOrder.LineItems[0].ShipAccount" autocomplete="off" />
                                     <i class="fa fa-book"></i>
                                 </div>
                             </div>
@@ -146,7 +147,8 @@
                                 <div class="view-form-icon" ng-show="user.ShipMethod.AskForAccountNumber && currentOrder.IsMultipleShip() && showShipAccountNumber">
                                     <div>
                                         <label ng-show="item.ShipAccount">{{('Shipping' | r) + ' ' + ('Account' | r) | xlat}}: </label>
-                                        <input class="form-control" ng-if="user.ShipMethod.AskForAccountNumber" placeholder="{{('Shipping' | r) + ' ' + ('Account' | r) + ' ' + ('Number' | r) | xlat}}" type="text" ng-model="item.ShipAccount" autocomplete="off" ng-required="showShipAccountNumber" />
+                                        <input class="form-control" ng-if="user.ShipMethod.AskForAccountNumber" placeholder="{{('Shipping' | r) + ' ' + ('Account' | r) + ' ' + ('Number' | r) | xlat}}"
+                                               type="text" ng-model="item.ShipAccount" autocomplete="off" ng-required="showShipAccountNumber" />
                                         <i class="fa fa-book"></i>
                                     </div>
                                     <div ng-show="shipAccountNumbers.length > 1">
