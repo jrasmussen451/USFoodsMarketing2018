@@ -814,6 +814,10 @@ minicart .minicart-detail {
 .cart-buttons ul li:last-child {width:25%;margin-right:0;}
 .cart-buttons ul li .btn {width:100%;border-radius:0}
 
+@media(max-width:767px) {
+    .cart-buttons ul li, .cart-buttons ul li:last-child {width:100%;margin-right:0;margin-bottom:5px}
+}
+
 ordersummary .text-info {color:grey}
 
 .panel-order .panel-heading.yes i:first-of-type {
