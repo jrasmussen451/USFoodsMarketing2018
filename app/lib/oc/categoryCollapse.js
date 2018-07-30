@@ -122,6 +122,7 @@ function categorycollapse() {
             '<div class="menu-list">',
             '<ul id="menu-content" class="menu-content">',
             '<ul class="parent">',
+            '<li ng-if="node.InteropID = \'FedExQuickPrint\'"><a target="_blank" href="https://printonline.fedex.com/nextgen/supplylogic_usf">FedeX QuickPrint</a></li>',
             '<collapsenode class="nav" ng-repeat="node in tree" node="node" current="current"></collapsenode>',
             '</ul>',
             '</ul>',
@@ -173,7 +174,7 @@ function collapsenode($compile) {
 
     function template() {
         return [
-            '<li class="451_cat_item" ng-class="{\'active\': node.expanded}">',
+            '<li class="451_cat_item" ng-class="{\'active\': node.expanded}" ng-if="node.InteropID !== \'FedExQuickPrint\'">',
                 '<a ng-show="node.SubCategories" ng-click="toggle()">{{node.Name}}&nbsp;',
                 '<i ng-show="node.expanded" class="fa fa-minus-circle"></i>',
                 '<i ng-show="!node.expanded" class="fa fa-plus-circle"></i>',
@@ -182,21 +183,15 @@ function collapsenode($compile) {
                 '<a ng-hide="node.SubCategories" ng-click="retarget(\'catalog/{{node.InteropID}}\')" ng-bind-html="node.Name"></a>',
                 '<ul ng-if="node.SubCategories.length > 0" class="collapse subL1" collapse="!node.expanded">',
                     '<li ng-repeat="subL1 in node.SubCategories" node="node" current="current">',
-                        //'<a ng-click="retarget(\'catalog/{{sub.InteropID}}\')" ng-bind-html="sub.Name"></a>', //i think retarget was meant to close the collapse
-                        //'{{subL1.Name}}',
-                        //'<a ng-show="subL1.SubCategories" ng-click="toggleSub(subL1.Name)" ng-class="{\'active\': node.SubCategories.expanded}">{{subL1.Name}}&nbsp;',
                         '<a ng-show="subL1.SubCategories" ng-click="subL1.SubCategories.expanded = !subL1.SubCategories.expanded" ng-class="{\'active\': subL1.SubCategories.expanded}">{{subL1.Name}}&nbsp;',
                         '<i ng-show="!subL1.SubCategories.expanded" class="fa fa-plus-circle"></i>',
                         '<i ng-show="subL1.SubCategories.expanded" class="fa fa-minus-circle"></i>',
                         '</a>',
-                        //'<a ng-hide="subL1.SubCategories" ng-href="catalog/{{subL1.InteropID}}" ng-bind-html="subL1.Name">',
                         '<a ng-hide="subL1.SubCategories" ng-click="retarget(\'catalog/{{subL1.InteropID}}\')" ng-bind-html="subL1.Name"></a>',
                         '</a>',
                         '<i ng-hide="subL1.SubCategories" class="fa fa-arrow-circle-o-right"></i>', //this has to be outside of the a for some reason
-                        //'<ul ng-show="node.SubCategories.SubCategories.length > 0">',
                             '<ul class="collapse subL2" id="subL2" collapse="!subL1.SubCategories.expanded">',
                             '<li ng-repeat="subL2 in subL1.SubCategories">',
-                                //'<a ng-hide="subL2.SubCategories" ng-href="catalog/{{subL2.InteropID}}" ng-bind-html="subL2.Name"></a>',
                                 '<a ng-hide="subL2.SubCategories" ng-click="retarget(\'catalog/{{subL2.InteropID}}\')" ng-bind-html="subL2.Name"></a>',
                                 '<i class="fa fa-arrow-circle-o-right"></i>',
                                 '</a>',
