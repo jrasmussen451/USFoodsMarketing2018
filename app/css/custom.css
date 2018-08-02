@@ -501,6 +501,8 @@ categorymodal a.categories {
     width:auto;
 }
 
+.carousel-control {width:5%}
+
 /**************minicart*****************/
 .minicart {float: right; cursor: pointer; min-width:300px; text-align:right;}
 .minicart, .minicart:hover, .minicart.active {
@@ -690,10 +692,17 @@ minicart .minicart-detail {
 .featured-items .caption h3 {
     color:#fff;
     text-transform:uppercase;
-    font-size:24px;
+    font-size:100%; /*24px*/
     margin:0;
     text-align:center;
 }
+/*@media (min-width:768px) {
+    .featured-items .caption h3 {
+        min-height:50px;
+        max-height:50px;
+    }
+}*/
+
 @media (max-width: 767px) {
     .featured-items li { width:100%; float:none; border:0;margin-bottom:30px}
     .featured-items li:first-child {margin-top:30px}
@@ -1050,9 +1059,15 @@ ul.burgers .badge {margin-left:3px;}
     }
 }
 
-@media(min-width:1199px) {
+@media(min-width:768px) {
     .nav-side-menu {
-        width: 210px;
+        width: 15%;
+    }
+}
+
+@media(min-width:1500px) {
+    .nav-side-menu {
+        width: 11%;
     }
 }
 
@@ -1091,8 +1106,8 @@ ul.burgers .badge {margin-left:3px;}
     .nav-side-menu .menu-list {
         overflow-y:scroll;
         overflow-x:hidden;
-        /*min-height:600px;*/ /*varying height due to assigned categories*/
-        max-height:780px;
+        /*min-height:600px;*/ /*varying height due to assigned categories 600,780*/
+        max-height:720px;
     }
 }
 
@@ -1161,6 +1176,13 @@ ul.burgers .badge {margin-left:3px;}
 }
 
 @media(min-width:1199px) {
+    .menu-content .parent li {
+        font-size:20px;
+    }
+}
+
+
+@media(min-width:1700px) {
     .menu-content .parent li {
         font-size:24px;
     }
