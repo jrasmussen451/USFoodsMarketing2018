@@ -76,7 +76,7 @@ function utilitynavigation() {
                             '</a>',
                             '</li>',
                             '<li>',
-                            '<a href="mailto:helpdeskusf@supplylogic.com">',
+                            '<a href="/contactus>',
                             '<i class="fa fa-envelope-o"></i>',
                             '<span class="">{{\'Contact Us\' | r | xlat}}</span>',
                             '</a>',
