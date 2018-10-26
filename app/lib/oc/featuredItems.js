@@ -40,7 +40,7 @@ function FeaturedItemsCtrl($scope, $filter, $location) {
         if (!newVal) return;
         if ($scope.featureditems) {
             $scope.featureditems = []; //reset the counter
-            $scope.featureditems = $scope.featureditems.concat($filter('featuredItemFilter')($scope.user.CustomFields, 'featureditemUSFoodsMarketing'));
+            $scope.featureditems = $scope.featureditems.concat($filter('featuredItemFilter')($scope.user.CustomFields, 'featureditem'));
         }
     });
 
