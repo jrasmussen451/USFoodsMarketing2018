@@ -699,10 +699,10 @@ minicart .minicart-detail {
 
 .category-header h1 {
     position:absolute;
-    bottom:10px;
+    bottom:40px;
     left:10px;
     font-size:1.6em;
-    color:#fff;
+    color:#000;
     text-transform:uppercase;
     font-weight:bold;
 }
@@ -713,7 +713,7 @@ minicart .minicart-detail {
         margin-bottom:-50px; /*reposition here to allow for pages to not have a category-header*/
     }
     .category-header h1 {
-        bottom:40px;
+        bottom:0px;
         left:40px;
         font-size:4.8rem;
     }
